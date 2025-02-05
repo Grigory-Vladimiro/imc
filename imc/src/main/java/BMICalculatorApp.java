@@ -3,8 +3,13 @@ import java.util.Scanner;
 import dev.grigory.imc.BMI.BMICalculator;
 
 public class BMICalculatorApp {
-public static void main(String[] args) {
+    public static void main(String[] args) {
+        processBMI();
+    }
+
+    public static String processBMI() {
         Scanner scanner = new Scanner(System.in);
+        String result;
 
         try {
             System.out.print("Enter your weight (kg): ");
@@ -16,12 +21,15 @@ public static void main(String[] args) {
             double bmi = BMICalculator.calculateBMI(weight, height);
             String category = BMICalculator.getBMICategory(bmi);
 
-            System.out.printf("Your BMI: %.2f%n", bmi);
-            System.out.println("Category: " + category);
+            result = String.format("Your BMI: %.2f, Category: %s", bmi, category);
+            System.out.println(result);
         } catch (Exception e) {
-            System.out.println("Invalid input. Please enter valid numbers.");
+            result = "Invalid input. Please enter valid numbers.";
+            System.out.println(result);
         } finally {
             scanner.close();
         }
+
+        return result;
     }
 }
