@@ -14,3 +14,6 @@ Entrega :
 Repositorio de Github (enlace)
 Diagrama de clase
 Captura de pantalla de la sección "Testing" de VSC donde se aprecia la cobertura de los tests.
+
+Java Ex - IMC
+[Google Docs](https://docs.google.com/document/d/1JIpaHoCX084XmrNnL8CqLr_B_TKVC04Z5tsXGjcZt4c/edit?tab=t.0#heading=h.b83oo526xprm)
