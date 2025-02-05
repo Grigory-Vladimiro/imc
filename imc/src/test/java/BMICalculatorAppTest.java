@@ -1,33 +1,31 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
-
-import dev.grigory.imc.BMI.BMICalculator;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BMICalculatorAppTest {
+
     @Test
-    public void testCalculateBMI_NormalCase() {
-        assertEquals(24.49, BMICalculator.calculateBMI(75, 1.75), 0.01);
+    public void testProcessBMI_NormalCase() {
+        String result = BMICalculatorApp.processBMI(75, 1.75);
+        assertTrue(result.contains("Your BMI: 24.49"));
+        assertTrue(result.contains("Category: Normal weight"));
     }
 
     @Test
-    public void testCalculateBMI_Obese() {
-        assertEquals(32.65, BMICalculator.calculateBMI(100, 1.75), 0.01);
+    public void testProcessBMI_Underweight() {
+        String result = BMICalculatorApp.processBMI(50, 1.75);
+        assertTrue(result.contains("Category: Mild Thinness"));
     }
 
     @Test
-    public void testCalculateBMI_InvalidInput() {
-        assertThrows(IllegalArgumentException.class, () -> BMICalculator.calculateBMI(-10, 1.75));
+    public void testProcessBMI_Obese() {
+        String result = BMICalculatorApp.processBMI(100, 1.75);
+        assertTrue(result.contains("Category: Obesity class II"));
     }
 
     @Test
-    public void testGetBMICategory_Normal() {
-        assertEquals("Normal weight", BMICalculator.getBMICategory(22.0));
-    }
-
-    @Test
-    public void testGetBMICategory_Obesity() {
-        assertEquals("Obesity class II", BMICalculator.getBMICategory(37.0));
+    public void testProcessBMI_InvalidInput() {
+        String result = BMICalculatorApp.processBMI(-10, 1.75);
+        assertEquals("Invalid input. Please enter valid numbers.", result);
     }
 }
