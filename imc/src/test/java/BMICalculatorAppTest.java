@@ -13,7 +13,7 @@ public class BMICalculatorAppTest {
 
     @Test
     public void testCalculateBMI_Obese() {
-        assertEquals(32.68, BMICalculator.calculateBMI(100, 1.75), 0.01);
+        assertEquals(32.65, BMICalculator.calculateBMI(100, 1.75), 0.01);
     }
 
     @Test
