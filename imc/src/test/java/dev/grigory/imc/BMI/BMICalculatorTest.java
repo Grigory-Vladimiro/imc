@@ -3,7 +3,7 @@ package dev.grigory.imc.BMI;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BMI_calculatorTest {
+public class BMICalculatorTest {
     @Test
     public void testCalculateBMI() {
         assertEquals(20.76, BMICalculator.calculateBMI(68, 1.80), 0.01);

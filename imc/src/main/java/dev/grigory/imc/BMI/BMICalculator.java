@@ -1,6 +1,6 @@
 package dev.grigory.imc.BMI;
 
-public class BMI_calculator {
+public class BMICalculator {
     public static double calculateBMI(double weight, double height) {
         if (weight <= 0 || height <= 0) {
             throw new IllegalArgumentException("Weight and height must be greater than zero.");
