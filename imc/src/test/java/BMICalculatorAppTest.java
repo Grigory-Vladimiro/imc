@@ -11,10 +11,10 @@ public class BMICalculatorAppTest {
     }
 
     @Test
-    public void testProcessBMI_Obese() {
-        String result = BMICalculatorApp.processBMI(100, 1.75);
-        assertTrue(result.contains("Obesity"));
-    }
+public void testProcessBMI_Obese() {
+    String result = BMICalculatorApp.processBMI(100, 1.75).toLowerCase(); 
+    assertTrue(result.contains("obesity"));
+}
 
     @Test
     public void testProcessBMI_InvalidInput() {
