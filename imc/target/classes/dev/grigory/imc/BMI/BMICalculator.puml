@@ -1,41 +1,30 @@
-@startuml BMICalculator
+@startuml
 
-package "dev.grigory.imc.BMI" {
-    
-    class BMICalculator {
-        + calculateBMI(weight: double, height: double): double
-        + getBMICategory(bmi: double): String
-    }
-
-    class BMICalculatorApp {
-        + main(args: String[]): void
-        + processUserInput(): void
-        + processBMI(weight: double, height: double): String
-    }
-
-    class BMICalculatorTest {
-        + testCalculateBMI_NormalCase(): void
-        + testCalculateBMI_InvalidInput(): void
-        + testGetBMICategory_Normal(): void
-    }
-
-    class BMICalculatorAppTest {
-        + testProcessBMI_NormalWeight(): void
-        + testProcessBMI_Obese(): void
-        + testProcessBMI_InvalidInput(): void
-    }
-
-    BMICalculatorApp --> BMICalculator : uses
-    BMICalculatorTest -[hidden]-> BMICalculator : tests
-    BMICalculatorAppTest -[hidden]-> BMICalculatorApp : tests
-
-    note right of BMICalculatorTest
-        JUnit 5 tests for BMICalculator
-    end note
-
-    note right of BMICalculatorAppTest
-        JUnit 5 tests for BMICalculatorApp
-    end note
+class BMICalculator {
+    + calculateBMI(weight: double, height: double): double
+    + getBMICategory(bmi: double): String
 }
+
+class BMICalculatorApp {
+    + main(args: String[]): void
+    + processUserInput(): void
+    + processBMI(weight: double, height: double): String
+}
+
+class BMICalculatorTest {
+    + testCalculateBMI_NormalCase(): void
+    + testCalculateBMI_InvalidInput(): void
+    + testGetBMICategory_Normal(): void
+}
+
+class BMICalculatorAppTest {
+    + testProcessBMI_NormalWeight(): void
+    + testProcessBMI_Obese(): void
+    + testProcessBMI_InvalidInput(): void
+}
+
+BMICalculatorApp --> BMICalculator : uses
+BMICalculatorTest --> BMICalculator : tests
+BMICalculatorAppTest --> BMICalculatorApp : tests
 
 @enduml
