@@ -1,0 +1,30 @@
+@startuml
+
+class BMICalculator {
+    + calculateBMI(weight: double, height: double): double
+    + getBMICategory(bmi: double): String
+}
+
+class BMICalculatorApp {
+    + main(args: String[]): void
+    + processUserInput(): void
+    + processBMI(weight: double, height: double): String
+}
+
+class BMICalculatorTest {
+    + testCalculateBMI_NormalCase(): void
+    + testCalculateBMI_InvalidInput(): void
+    + testGetBMICategory_Normal(): void
+}
+
+class BMICalculatorAppTest {
+    + testProcessBMI_NormalWeight(): void
+    + testProcessBMI_Obese(): void
+    + testProcessBMI_InvalidInput(): void
+}
+
+BMICalculatorApp --> BMICalculator : uses
+BMICalculatorTest --> BMICalculator : tests
+BMICalculatorAppTest --> BMICalculatorApp : tests
+
+@enduml
